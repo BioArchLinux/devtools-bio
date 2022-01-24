@@ -1,4 +1,4 @@
-project(devtools-cn)
+project(devtools-bio)
 
 ## Setup
 cmake_minimum_required(VERSION 2.8)
@@ -17,19 +17,19 @@ function(install_build_script cmd)
     DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/cmds/${cmd}")
 endfunction()
 
-install_build_script(archlinuxcn-i686-build)
-install_build_script(archlinuxcn-x86_64-build)
-install_build_script(archlinuxcn-testing-x86_64-build)
-install_build_script(archlinuxcn-staging-x86_64-build)
-install_build_script(archlinuxcn-kde-unstable-x86_64-build)
-install_build_script(multilib-archlinuxcn-build)
+install_build_script(BioArchLinux-i686-build)
+install_build_script(BioArchLinux-x86_64-build)
+install_build_script(BioArchLinux-testing-x86_64-build)
+install_build_script(BioArchLinux-staging-x86_64-build)
+install_build_script(BioArchLinux-kde-unstable-x86_64-build)
+install_build_script(multilib-BioArchLinux-build)
 
 install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/cmds/"
   DESTINATION "${CMAKE_INSTALL_BINDIR}")
 install(FILES
-  "pacman-archlinuxcn.conf"
-  "pacman-archlinuxcn-testing.conf"
-  "pacman-archlinuxcn-staging.conf"
-  "pacman-archlinuxcn-kde-unstable.conf"
-  "pacman-multilib-archlinuxcn.conf"
+  "pacman-BioArchLinux.conf"
+  "pacman-BioArchLinux-testing.conf"
+  "pacman-BioArchLinux-staging.conf"
+  "pacman-BioArchLinux-kde-unstable.conf"
+  "pacman-multilib-BioArchLinux.conf"
   DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/")
