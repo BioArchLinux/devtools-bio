@@ -17,19 +17,19 @@ function(install_build_script cmd)
     DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/cmds/${cmd}")
 endfunction()
 
-install_build_script(BioArchLinux-i686-build)
-install_build_script(BioArchLinux-x86_64-build)
-install_build_script(BioArchLinux-testing-x86_64-build)
-install_build_script(BioArchLinux-staging-x86_64-build)
-install_build_script(BioArchLinux-kde-unstable-x86_64-build)
-install_build_script(multilib-BioArchLinux-build)
+install_build_script(bioarchlinux-i686-build)
+install_build_script(bioarchlinux-x86_64-build)
+install_build_script(bioarchlinux-testing-x86_64-build)
+install_build_script(bioarchlinux-staging-x86_64-build)
+install_build_script(bioarchlinux-kde-unstable-x86_64-build)
+install_build_script(multilib-bioarchlinux-build)
 
 install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/cmds/"
   DESTINATION "${CMAKE_INSTALL_BINDIR}")
 install(FILES
-  "pacman-BioArchLinux.conf"
-  "pacman-BioArchLinux-testing.conf"
-  "pacman-BioArchLinux-staging.conf"
-  "pacman-BioArchLinux-kde-unstable.conf"
-  "pacman-multilib-BioArchLinux.conf"
+  "pacman-bioarchlinux.conf"
+  "pacman-bioarchlinux-testing.conf"
+  "pacman-bioarchlinux-staging.conf"
+  "pacman-bioarchlinux-kde-unstable.conf"
+  "pacman-multilib-bioarchlinux.conf"
   DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/")
