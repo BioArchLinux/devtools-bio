@@ -1,7 +1,7 @@
 project(devtools-bio)
 
 ## Setup
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}"
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -23,6 +23,15 @@ install_build_script(bioarchlinux-testing-x86_64-build)
 install_build_script(bioarchlinux-staging-x86_64-build)
 install_build_script(bioarchlinux-kde-unstable-x86_64-build)
 install_build_script(multilib-bioarchlinux-build)
+
+foreach(CARCH arm armv6h armv7h aarch64)
+  install_build_script("archlinuxcn-${CARCH}-build")
+  configure_file(pacman-archlinuxcn-arm.conf.in
+    "pacman-archlinuxcn-${CARCH}.conf" @ONLY)
+  install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/pacman-archlinuxcn-${CARCH}.conf"
+    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/")
+endforeach()
 
 install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/cmds/"
   DESTINATION "${CMAKE_INSTALL_BINDIR}")
