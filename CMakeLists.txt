@@ -25,11 +25,11 @@ install_build_script(bioarchlinux-kde-unstable-x86_64-build)
 install_build_script(multilib-bioarchlinux-build)
 
 foreach(CARCH arm armv6h armv7h aarch64)
-  install_build_script("archlinuxcn-${CARCH}-build")
-  configure_file(pacman-archlinuxcn-arm.conf.in
-    "pacman-archlinuxcn-${CARCH}.conf" @ONLY)
+  install_build_script("bioarchlinux-${CARCH}-build")
+  configure_file(pacman-bioarchlinux-arm.conf.in
+    "pacman-bioarchlinux-${CARCH}.conf" @ONLY)
   install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/pacman-archlinuxcn-${CARCH}.conf"
+    "${CMAKE_CURRENT_BINARY_DIR}/pacman-bioarchlinux-${CARCH}.conf"
     DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/")
 endforeach()
 
