@@ -17,20 +17,10 @@ function(install_build_script cmd)
     DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/cmds/${cmd}")
 endfunction()
 
-install_build_script(bioarchlinux-i686-build)
 install_build_script(bioarchlinux-x86_64-build)
 install_build_script(bioarchlinux-testing-x86_64-build)
 install_build_script(bioarchlinux-staging-x86_64-build)
-install_build_script(bioarchlinux-multilib-build)
-
-foreach(CARCH arm armv6h armv7h aarch64)
-  install_build_script("bioarchlinux-${CARCH}-build")
-  configure_file(bioarchlinux-arm.conf.in
-    "bioarchlinux-${CARCH}.conf" @ONLY)
-  install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/bioarchlinux-${CARCH}.conf"
-    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/pacman.conf.d/")
-endforeach()
+install_build_script(multilib-bioarchlinux-build)
 
 install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/cmds/"
   DESTINATION "${CMAKE_INSTALL_BINDIR}")
@@ -38,5 +28,5 @@ install(FILES
   "bioarchlinux.conf"
   "bioarchlinux-testing.conf"
   "bioarchlinux-staging.conf"
-  "bioarchlinux-multilib.conf"
+  "multilib-bioarchlinux.conf"
   DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/pacman.conf.d/")
