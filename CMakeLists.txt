@@ -25,7 +25,7 @@ install_build_script(bioarchlinux-multilib-build)
 
 foreach(CARCH arm armv6h armv7h aarch64)
   install_build_script("bioarchlinux-${CARCH}-build")
-  configure_file(pacman-bioarchlinux-arm.conf.in
+  configure_file(bioarchlinux-arm.conf.in
     "bioarchlinux-${CARCH}.conf" @ONLY)
   install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/bioarchlinux-${CARCH}.conf"
