@@ -21,8 +21,7 @@ install_build_script(bioarchlinux-i686-build)
 install_build_script(bioarchlinux-x86_64-build)
 install_build_script(bioarchlinux-testing-x86_64-build)
 install_build_script(bioarchlinux-staging-x86_64-build)
-install_build_script(bioarchlinux-kde-unstable-x86_64-build)
-install_build_script(multilib-bioarchlinux-build)
+install_build_script(bioarchlinux-multilib-build)
 
 foreach(CARCH arm armv6h armv7h aarch64)
   install_build_script("bioarchlinux-${CARCH}-build")
@@ -30,7 +29,7 @@ foreach(CARCH arm armv6h armv7h aarch64)
     "pacman-bioarchlinux-${CARCH}.conf" @ONLY)
   install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/pacman-bioarchlinux-${CARCH}.conf"
-    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/")
+    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/pacman.conf.d/")
 endforeach()
 
 install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/cmds/"
@@ -39,6 +38,5 @@ install(FILES
   "pacman-bioarchlinux.conf"
   "pacman-bioarchlinux-testing.conf"
   "pacman-bioarchlinux-staging.conf"
-  "pacman-bioarchlinux-kde-unstable.conf"
-  "pacman-multilib-bioarchlinux.conf"
-  DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/")
+  "pacman-bioarchlinux-multilib.conf"
+  DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/devtools/pacman.conf.d/")
